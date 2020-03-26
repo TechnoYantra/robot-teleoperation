@@ -39,25 +39,76 @@
 
 		var cmd_vel_listener = new ROSLIB.Topic({
 			ros : ros, 
-			name : "/cmd_vel",
+			name : "/husky_velocity_controller/cmd_vel",
 			messageType : 'geometry_msgs/Twist'
 		});
 
-		move = function (linear, angular) {
+		front = function () {
 			var twist = new ROSLIB.Message({
 				linear: {
-					x: linear,
+					x: 0.5,
 					y: 0,
 					z: 0
 				},
 				angular: {
 					x: 0,
 					y: 0,
-					z: angular
+					z: 0
 				}
 			});
 
 			cmd_vel_listener.publish(twist);
+		}
+		back = function () {
+			var twist = new ROSLIB.Message({
+				linear: {
+					x: -0.5,
+					y: 0,
+					z: 0
+				},
+				angular: {
+					x: 0,
+					y: 0,
+					z: 0
+				}
+			});
+
+			cmd_vel_listener.publish(twist);
+		}
+		left = function () {
+			var twist = new ROSLIB.Message({
+				linear: {
+					x: 0,
+					y: 0,
+					z: 0
+				},
+				angular: {
+					x: 0,
+					y: 0,
+					z: -0.5
+				}
+			});
+
+			cmd_vel_listener.publish(twist);
+		}
+		right = function () {
+			var twist = new ROSLIB.Message({
+				linear: {
+					x: 0,
+					y: 0,
+					z: 0
+				},
+				angular: {
+					x: 0,
+					y: 0,
+					z: 0.5
+				}
+			});
+
+			cmd_vel_listener.publish(twist);
+		}
+		demo = function() {
+			console.log('you clicked me');
 		}
 
 	</script>
@@ -71,7 +122,15 @@
 	<p>Last /txt_msg received: <span id="msg"></span></p>
 	
 	<br>
+	<h3>
+		Control the robot
+	</h3>
+	<button type="button" onclick="front()">Forward</button>
 	<br>
+	<button type="button" onclick="left()">Left</button>
+	<button type="button" onclick="right()">Right</button>
+	<br>
+	<button type="button" onclick="back()">Backward</button>
 	<h2>
 	Image data is here
 	</h2>
