@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<script type="text/javascript" src="eventemitter2.min.js"></script>
+<script type="text/javascript" src="roslib.min.js"></script>
+
+
+	<script type="text/javascript" type="text/javascript">
+		var ros = new ROSLIB.Ros({
+			url : 'ws://localhost:9090'
+		});
+
+		ros.on('connection', function() {
+			document.getElementById("status").innerHTML = "connected";
+		});
+
+		ros.on('error', function() {
+			document.getElementById("status").innerHTML = "Error";
+		});
+
+		ros.on('close', function() {
+			document.getElementById("status").innerHTML = "Closed";
+		});
+
+		// Subscribing to a Topic
+		var txt_listener = new ROSLIB.Topic({
+			ros : ros, 
+			name : '/txt_msg',
+			messageType: 'std_msgs/String'
+		});
+
+		txt_listener.subscribe(function(m) {
+			document.getElementById("msg").innerHTML = m.data;
+			move(0.5, 0)
+		});
+
+		// Publishing a Topic
+
+		var cmd_vel_listener = new ROSLIB.Topic({
+			ros : ros, 
+			name : "/cmd_vel",
+			messageType : 'geometry_msgs/Twist'
+		});
+
+		move = function (linear, angular) {
+			var twist = new ROSLIB.Message({
+				linear: {
+					x: linear,
+					y: 0,
+					z: 0
+				},
+				angular: {
+					x: 0,
+					y: 0,
+					z: angular
+				}
+			});
+
+			cmd_vel_listener.publish(twist);
+		}
+
+	</script>
+</head>
+
+<body>
+	<h1>
+		Simple ROS User Interface
+	</h1>
+	<p>Connection status: <span id="status"></span></p>
+	<p>Last /txt_msg received: <span id="msg"></span></p>
+	
+	<br>
+	<br>
+	<h2>
+	Image data is here
+	</h2>
+	<img src="http://localhost:8080/stream?topic=/rrbot/camera1/image_raw&type=mjpeg&quality=10&invert&width=640&height=400&default_transport=compressed"/>
+</body>
+</html>
