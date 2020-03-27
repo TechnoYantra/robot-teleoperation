@@ -7,11 +7,11 @@ Robust outdoor teleoperation to increase efficiency and reduce costs based on RO
 - [x] Setup web server
 - [x] Publish Image Data to web browser
 - [x] Publish topic through web page
-- [ ] GUI for the robot
+- [x] GUI for the robot
 
 ## Steps
-- Install the husky pkg
-- Locate the husky_description pkg and add the following code in the description.urdf.xacro file
+- Install the husky pkg (e.g. husky_gazebo huskty_simulator, etc.)
+- Locate the husky_description pkg and add the following code in the decoration.urdf.xacro file
 ```
 
     <!-- Adding the camera -->
