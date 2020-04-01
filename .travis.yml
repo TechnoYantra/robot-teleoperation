@@ -13,7 +13,7 @@ matrix:
       dist: xenial
       env: ROS_DISTRO=kinetic
     - name: "Bionic melodic"
-      dist: melodic
+      dist: bionic
       env: ROS_DISTRO=melodic
 
 # Configuration variables
