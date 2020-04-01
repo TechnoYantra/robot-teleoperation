@@ -43,7 +43,7 @@
 
 		var cmd_vel_listener = new ROSLIB.Topic({
 			ros : ros, 
-			name : "/husky_velocity_controller/cmd_vel",
+			name : "/first/husky_velocity_controller/cmd_vel",
 			messageType : 'geometry_msgs/Twist'
 		});
 		var cmd_vel_listener2 = new ROSLIB.Topic({
@@ -229,7 +229,7 @@ manager.on('move', function (event, nipple) {
 	<div class="row">
 		<div class="column">
 			<center>
-			<img src="http://localhost:8080/stream?topic=/husky/camera/image_raw&type=mjpeg&quality=30&width=320&height=200&default_transport=compressed"/>
+			<img src="http://localhost:8080/stream?topic=/first/husky/camera/image_raw&type=mjpeg&quality=30&width=320&height=200&default_transport=compressed"/>
 		</center>
 		</div>
 		<div class="column">
