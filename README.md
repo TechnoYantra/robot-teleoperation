@@ -84,12 +84,7 @@ Publishing the image stream to the web
 ## Two Husky Robots
 Steps to launch the two husky robot
 - roslaunch robot_gui_bridge husky_empty.launch
-- Make file named spawn_husky2.launch in the pkg husky_gazebo/launch and copy the spawn_husky.launch and change few arguments
-```
-change robot_namespace to "/second"
-change x to "3.0"
-```
-- roslaunch husky_gazebo spawn_husky2.launch
+- roslaunch husky_pkg husky_two.launch
 - roslaunch robot_gui_bridge websocket.launch
 
 ## UI Changes
