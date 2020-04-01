@@ -92,3 +92,5 @@ change x to "3.0"
 - roslaunch husky_gazebo spawn_husky2.launch
 - roslaunch robot_gui_bridge websocket.launch
 
+## UI Changes
+![UI for web interface](./assets/test02.png "UI for web interface")
