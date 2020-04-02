@@ -43,12 +43,12 @@
 
 		var cmd_vel_listener = new ROSLIB.Topic({
 			ros : ros, 
-			name : "/first/husky_velocity_controller/cmd_vel",
+			name : "/tb3_0/cmd_vel",
 			messageType : 'geometry_msgs/Twist'
 		});
 		var cmd_vel_listener2 = new ROSLIB.Topic({
 			ros : ros, 
-			name : "/second/husky_velocity_controller/cmd_vel",
+			name : "/tb3_0/cmd_vel",
 			messageType : 'geometry_msgs/Twist'
 		});
 
@@ -229,7 +229,7 @@ manager.on('move', function (event, nipple) {
 	<div class="row">
 		<div class="column">
 			<center>
-			<img src="http://localhost:8080/stream?topic=/first/husky/camera/image_raw&type=mjpeg&quality=30&width=320&height=200&default_transport=compressed"/>
+			<img src="http://localhost:8080/stream?topic=/tb3_0/camera/rgb/image_raw&type=mjpeg&quality=30&width=320&height=200&default_transport=compressed"/>
 		</center>
 		</div>
 		<div class="column">
@@ -237,8 +237,8 @@ manager.on('move', function (event, nipple) {
 				<label for="robot">Choose a robot:</label>
 		
 		<select id="robot">
-		  <option value="husky1">Husky1</option>
-		  <option value="husky2">Huskty2</option>
+		  <option value="husky1">Robot1</option>
+		  <option value="husky2">Robot2</option>
 		</select>
 		<br><br><br><br><br><br><br><br>
 		<div id="zone_joystick" style="position: relative;"></div>
@@ -246,7 +246,7 @@ manager.on('move', function (event, nipple) {
 		</div>
 		<div class="column">
 			<center>
-			<img src="http://localhost:8080/stream?topic=/second/husky/camera/image_raw&type=mjpeg&quality=30&width=320&height=200&default_transport=compressed"/>
+			<img src="http://localhost:8080/stream?topic=/tb3_1/camera/rgb/image_raw&type=mjpeg&quality=30&width=320&height=200&default_transport=compressed"/>
 		</center>
 		</div>
 	  </div>
