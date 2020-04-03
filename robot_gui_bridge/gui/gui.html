@@ -28,15 +28,36 @@
 		});
 
 		// Subscribing to a Topic
-		var txt_listener = new ROSLIB.Topic({
+		var fix_listener1 = new ROSLIB.Topic({
 			ros : ros, 
-			name : '/txt_msg',
-			messageType: 'std_msgs/String'
+			name : '/tb3_0/fix',
+			messageType: 'sensor_msgs/NavSatFix'
 		});
 
-		txt_listener.subscribe(function(m) {
-			document.getElementById("msg").innerHTML = m.data;
-			move(0.5, 0)
+		var fix_listener2 = new ROSLIB.Topic({
+			ros : ros, 
+			name : '/tb3_1/fix',
+			messageType: 'sensor_msgs/NavSatFix'
+		});
+
+		fix_listener1.subscribe(function(m) {
+			document.getElementById("msglong1").innerHTML = m.longitude;
+			//move(0.5, 0)
+		});
+		
+		fix_listener2.subscribe(function(m) {
+			document.getElementById("msglong2").innerHTML = m.longitude;
+			//move(0.5, 0)
+		});
+
+		fix_listener1.subscribe(function(m) {
+			document.getElementById("msglat1").innerHTML = m.latitude;
+			//move(0.5, 0)
+		});
+		
+		fix_listener2.subscribe(function(m) {
+			document.getElementById("msglat2").innerHTML = m.latitude;
+			//move(0.5, 0)
 		});
 
 		// Publishing a Topic
@@ -48,7 +69,7 @@
 		});
 		var cmd_vel_listener2 = new ROSLIB.Topic({
 			ros : ros, 
-			name : "/tb3_0/cmd_vel",
+			name : "/tb3_1/cmd_vel",
 			messageType : 'geometry_msgs/Twist'
 		});
 
@@ -217,7 +238,7 @@ manager.on('move', function (event, nipple) {
 	</h1>
 	
 	<h3 style="color: red;">Connection status: <span id="status"></span></h3>
-	<!--<p>Last /txt_msg received: <span id="msg"></span></p> -->
+	<p>Last /txt_msg received: <span id="msg"></span></p>
 	
 	</center>
 	<hr>
@@ -228,6 +249,9 @@ manager.on('move', function (event, nipple) {
 </center>
 	<div class="row">
 		<div class="column">
+			<h4>Robot1</h4>
+			<p>longitude: <span id="msglong1"></span></p>
+			<p>latitude: <span id="msglat1"></span></p>
 			<center>
 			<img src="http://localhost:8080/stream?topic=/tb3_0/camera/rgb/image_raw&type=mjpeg&quality=30&width=320&height=200&default_transport=compressed"/>
 		</center>
@@ -245,6 +269,9 @@ manager.on('move', function (event, nipple) {
 	
 		</div>
 		<div class="column">
+			<h4>Robot2</h4>
+			<p>longitude: <span id="msglong2"></span>
+			<p> latitude: <span id="msglat2"></span></p>
 			<center>
 			<img src="http://localhost:8080/stream?topic=/tb3_1/camera/rgb/image_raw&type=mjpeg&quality=30&width=320&height=200&default_transport=compressed"/>
 		</center>
