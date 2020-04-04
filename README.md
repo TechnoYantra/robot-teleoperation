@@ -2,8 +2,7 @@
 
 Robust outdoor teleoperation to increase efficiency and reduce costs based on ROS
 
-https://travis-ci.org/sachinkum0009/robot-teleoperation.svg?branch=master
-
+[![Build Status](https://travis-ci.org/sachinkum0009/robot-teleoperation.svg?branch=master)](https://travis-ci.org/sachinkum0009/robot-teleoperation)
 
 ### To Do
 - [x] Step to run <b>Robot</b>
