@@ -1,6 +1,0 @@
-<launch>
-	<include file="$(find gazebo_ros)/launch/empty_world.launch" />
-	<include file="$(find husky_gazebo)/launch/spawn_husky.launch">
-		<arg name="robot_namespace" value="/first" />
-	</include>
-</launch>
