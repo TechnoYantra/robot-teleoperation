@@ -30,7 +30,7 @@
 		// Subscribing to a Topic
 		var fix_listener1 = new ROSLIB.Topic({
 			ros : ros, 
-			name : '/fix',
+			name : '/tb3_0/fix',
 			messageType: 'sensor_msgs/NavSatFix'
 		});
 
@@ -45,13 +45,17 @@
       console.log('change marker position was called')
       var lng = m.longitude;
       var lat = m.latitude;
-      changeMarkerPosition(marker, lat, lng)
+      changeMarkerPosition(marker, lat, lng);
 			//move(0.5, 0)
 		});
 		
 		fix_listener2.subscribe(function(m) {
 			//document.getElementById("msglong2").innerHTML = m.longitude;
-			//move(0.5, 0)
+			console.log('change marker 2 position was called');
+      var lng = m.longitude;
+      var lat = m.latitude;
+      changeMarkerPosition2(marker2, lat, lng);
+      //move(0.5, 0)
 		});
 
 		fix_listener1.subscribe(function(m) {
@@ -163,10 +167,76 @@
       manager.on('start', function (event, nipple) {
   timer = setInterval(function () {
 	  if (document.getElementById('robot').value == "husky1"){
-		move(linear_speed, angular_speed);
+      if (linear_speed > 1.0) {
+      linear_speed = 0.8;
+    console.log('linear value');
+    console.log(linear_speed);
+      
+  }
+  else if (linear_speed < -1.0) {
+    linear_speed = -0.8;
+    console.log(' linear value');
+    console.log(linear_speed);
+      
+  }
+  else {
+    console.log('linear value');
+    console.log(linear_speed);
+  }
+  if (angular_speed > 1.0) {
+      angular_speed = 0.8;
+    console.log('angular value');
+    console.log(angular_speed);
+      
+  }
+  else if (angular_speed < -1.0) {
+    angular_speed = -0.8;
+    console.log('start linear value');
+    console.log(angular_speed);
+      
+  }
+  else {
+    console.log('angular value');
+    console.log(angular_speed);
+  }
+  
+  move(linear_speed, angular_speed);
 	  }
 	  else if (document.getElementById('robot').value == "husky2")
 	  {
+      if (linear_speed > 1.0) {
+      linear_speed = 0.8;
+    console.log('linear value');
+    console.log(linear_speed);
+      
+  }
+  else if (linear_speed < -1.0) {
+    linear_speed = -0.8;
+    console.log(' linear value');
+    console.log(linear_speed);
+      
+  }
+  else {
+    console.log('linear value');
+    console.log(linear_speed);
+  }
+  if (angular_speed > 1.0) {
+      angular_speed = 0.8;
+    console.log('angular value');
+    console.log(angular_speed);
+      
+  }
+  else if (angular_speed < -1.0) {
+    angular_speed = -0.8;
+    console.log('start linear value');
+    console.log(angular_speed);
+      
+  }
+  else {
+    console.log('angular value');
+    console.log(angular_speed);
+  }
+  
 		move2(linear_speed, angular_speed);
 	  }
     
@@ -187,6 +257,11 @@ move = function (linear, angular) {
         z: angular
       }
     });
+
+    console.log('linear value');
+    console.log(twist.linear.x);
+    console.log('angular value');
+    console.log(twist.angular.z);
     cmd_vel_listener.publish(twist);
   }
 // Second function
@@ -204,13 +279,14 @@ move2 = function (linear, angular) {
         z: angular
       }
     });
+    console.log(twist);
     cmd_vel_listener2.publish(twist);
   }
 
 manager.on('move', function (event, nipple) {
-  max_linear = 5.0; // m/s
-  max_angular = 2.0; // rad/s
-  max_distance = 75.0; // pixels;
+  max_linear = 0.5; // m/s
+  max_angular = 0.5; // rad/s
+  max_distance = 25.0; // pixels;
   linear_speed = Math.sin(nipple.angle.radian) * max_linear * nipple.distance/max_distance;
   angular_speed = -Math.cos(nipple.angle.radian) * max_angular * nipple.distance/max_distance;
 });
@@ -235,6 +311,9 @@ manager.on('move', function (event, nipple) {
     // animation and no animation.
 
     var marker;
+    var marker2;
+
+
 
     function changeMarkerPosition(marker, lat, lng) {
         var latlng = new google.maps.LatLng((lat-19), (lng+66));
@@ -243,9 +322,16 @@ manager.on('move', function (event, nipple) {
         marker.setPosition(latlng);
       }
 
+    function changeMarkerPosition2(marker2, lat, lng) {
+        var latlng = new google.maps.LatLng((lat-18), (lng+65));
+        console.log(lat-18);
+        console.log(lng+65);
+        marker2.setPosition(latlng);
+      }
+
     function initMap() {
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 10,
+        zoom: 20,
         center: {lat: 30.9010, lng: 75.8573}
       });
 
@@ -258,9 +344,22 @@ manager.on('move', function (event, nipple) {
         draggable: true,
         icon: iconBase,
         animation: google.maps.Animation.DROP,
-        position: {lat: 30.9010, lng: 75.8573}
+        position: {lat: 30.9010, lng: 75.8573},
+        title: 'Turtle 1'
       });
       marker.addListener('click', toggleBounce);
+
+      // second marker
+      
+      marker2 = new google.maps.Marker({
+        map: map,
+        draggable: true,
+        icon: iconBase,
+        animation: google.maps.Animation.DROP,
+        position: {lat: 31.9010, lng: 75.8573},
+        title: 'Turtle 2'
+      });
+      marker2.addListener('click', toggleBounce);
 
       // second marker
       //marker2 = new google.maps.Marker({
@@ -276,19 +375,19 @@ manager.on('move', function (event, nipple) {
 
       
 
-    function turtle_logo() {
-      long = long + 1;
+    //function turtle_logo() {
+      //long = long + 1;
       // third marker
-      marker3 = new google.maps.Marker({
-        map: map,
-        draggable: true,
-        icon: iconBase,
-        animation: google.maps.Animation.DROP,
-        position: {lat: long, lng: lat}
-      });
-      marker3.addListener('click', toggleBounce);
-    }
-    }
+     // marker3 = new google.maps.Marker({
+       // map: map,
+        //draggable: true,
+        //icon: iconBase,
+    //    animation: google.maps.Animation.DROP,
+      //  position: {lat: long, lng: lat}
+    //  });
+     // marker3.addListener('click', toggleBounce);
+   // }
+   }
 
     function toggleBounce() {
       if (marker.getAnimation() !== null) {
@@ -303,12 +402,12 @@ manager.on('move', function (event, nipple) {
       console.log(value);
       if(value=="husky1")
       {
-        document.getElementById("myImg").src = "http://localhost:8080/stream?topic=tb3_0/camera/rgb/image_raw&type=mjpeg&quality=30&width=320&height=200&default_transport=compressed";
+        document.getElementById("myImg").src = "http://localhost:8080/stream?topic=tb3_0/camera/rgb/image_raw&type=mjpeg&quality=30&width=640&height=400&default_transport=compressed";
 
       }
       else if (value == "husky2")
       {
-        document.getElementById("myImg").src = "http://localhost:8080/stream?topic=tb3_1/camera/rgb/image_raw&type=mjpeg&quality=30&width=320&height=200&default_transport=compressed";
+        document.getElementById("myImg").src = "http://localhost:8080/stream?topic=tb3_1/camera/rgb/image_raw&type=mjpeg&quality=30&width=640&height=400&default_transport=compressed";
         
       }
   }
@@ -369,8 +468,8 @@ manager.on('move', function (event, nipple) {
 	</h3>
 </center>
     <center>
-        <div style="height: 200px; width: 320px;">
-            <img id="myImg" src="http://localhost:8080/stream?topic=/tb3_0/camera/rgb/image_raw&type=mjpeg&quality=30&width=320&height=200&default_transport=compressed"/>
+        <div style="height: 400px; width: 640px;">
+            <img id="myImg" src="http://localhost:8080/stream?topic=/tb3_0/camera/rgb/image_raw&type=mjpeg&quality=30&width=640&height=400&default_transport=compressed"/>
         </div>    
     </center>
     <br>
@@ -393,7 +492,7 @@ manager.on('move', function (event, nipple) {
     Plan
 </h2>
 <center>
-    <div style="height: 200px; width: 320px;">
+    <div style="height: 400px; width: 640px;">
         <div id="map"></div>
         </div>    
 </center>
