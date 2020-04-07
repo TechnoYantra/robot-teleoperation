@@ -83,11 +83,19 @@ Publishing the image stream to the web
 ![Test Results](./assets/test01.png "Test Results")
 
 
-## Two Husky Robots
+## Two TurtleBot3 Robots
 Steps to launch the two husky robot
-- roslaunch robot_gui_bridge husky_empty.launch
-- roslaunch husky_pkg husky_two.launch
+- got to gui folder of robot_gui_bridge and run this command
+```
+python3 -m http.server
+```
+- roslaunch turtle_pkg two_turtlebot3.launch
 - roslaunch robot_gui_bridge websocket.launch
+- now you can open the browser and go to the url
+```
+localhost:8000
+```
+- find the robot_teleoperation.html file from there and you are ready to go.
 
 ## UI Changes
 ![UI for web interface](./assets/test02.png "UI for web interface")
