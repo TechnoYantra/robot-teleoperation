@@ -50,7 +50,7 @@
 		});
 		
 		fix_listener2.subscribe(function(m) {
-			document.getElementById("msglong2").innerHTML = m.longitude;
+			//document.getElementById("msglong2").innerHTML = m.longitude;
 			//move(0.5, 0)
 		});
 
@@ -60,7 +60,7 @@
 		});
 		
 		fix_listener2.subscribe(function(m) {
-			document.getElementById("msglat2").innerHTML = m.latitude;
+			//document.getElementById("msglat2").innerHTML = m.latitude;
 			//move(0.5, 0)
 		});
 
@@ -68,7 +68,7 @@
 
 		var cmd_vel_listener = new ROSLIB.Topic({
 			ros : ros, 
-			name : "/cmd_vel",
+			name : "/tb3_0/cmd_vel",
 			messageType : 'geometry_msgs/Twist'
 		});
 		var cmd_vel_listener2 = new ROSLIB.Topic({
@@ -228,9 +228,7 @@ manager.on('move', function (event, nipple) {
 	  }
 });
     }
-    window.onload = function () {
-      createJoystick();
-    }
+    
 
     // The following example creates a marker in Stockholm, Sweden using a DROP
     // animation. Clicking on the marker will toggle the animation between a BOUNCE
@@ -299,6 +297,25 @@ manager.on('move', function (event, nipple) {
         marker.setAnimation(google.maps.Animation.BOUNCE);
       }
     }
+    
+  function jsFunction(value)
+  {
+      console.log(value);
+      if(value=="husky1")
+      {
+        document.getElementById("myImg").src = "http://localhost:8080/stream?topic=tb3_0/camera/rgb/image_raw&type=mjpeg&quality=30&width=320&height=200&default_transport=compressed";
+
+      }
+      else if (value == "husky2")
+      {
+        document.getElementById("myImg").src = "http://localhost:8080/stream?topic=tb3_1/camera/rgb/image_raw&type=mjpeg&quality=30&width=320&height=200&default_transport=compressed";
+        
+      }
+  }
+  window.onload = function () {
+      createJoystick();
+    }
+
   </script>
   <style>
     /* Always set the map height explicitly to define the size of the div
@@ -317,8 +334,7 @@ manager.on('move', function (event, nipple) {
 
   </style>
   
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?&callback=initMap">
+  <script async defer src="https://maps.googleapis.com/maps/api/js?&callback=initMap">
   </script>
 </head>
 
@@ -335,14 +351,14 @@ manager.on('move', function (event, nipple) {
     <center>
         <label for="robot">Choose a robot:</label>
 
-    <select id="robot">
+    <select id="robot"  onchange="jsFunction(this.value);">
   <option value="husky1">Robot1</option>
   <option value="husky2">Robot2</option>
     </select>
 
     <hr>
 	
-	<h3>Connection status: <span id="status" style="color: red;"></span></h3>
+	<h3>Connection status: <span id="status" style="color:green;"></span></h3>
 	<!-- <p>Last /txt_msg received: <span id="msg"></span></p> -->
 	
 	</center>
@@ -354,10 +370,12 @@ manager.on('move', function (event, nipple) {
 </center>
     <center>
         <div style="height: 200px; width: 320px;">
-            <img src="http://localhost:8080/stream?topic=/camera/rgb/image_raw&type=mjpeg&quality=30&width=320&height=200&default_transport=compressed"/>
+            <img id="myImg" src="http://localhost:8080/stream?topic=/tb3_0/camera/rgb/image_raw&type=mjpeg&quality=30&width=320&height=200&default_transport=compressed"/>
         </div>    
     </center>
     <br>
+
+    <hr>
     <br>
     <br><br>
     <br>
