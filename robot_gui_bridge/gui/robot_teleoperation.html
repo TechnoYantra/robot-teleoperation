@@ -336,13 +336,14 @@ manager.on('move', function (event, nipple) {
       });
 
       // adding custom marker
-      var iconBase = 'turtle_logo.png';
+      var iconBase1 = 'robot1.png';
+      var iconBase2 = 'robot2.png';
       
 
       marker = new google.maps.Marker({
         map: map,
         draggable: true,
-        icon: iconBase,
+        icon: iconBase1,
         animation: google.maps.Animation.DROP,
         position: {lat: 30.9010, lng: 75.8573},
         title: 'Turtle 1'
@@ -354,7 +355,7 @@ manager.on('move', function (event, nipple) {
       marker2 = new google.maps.Marker({
         map: map,
         draggable: true,
-        icon: iconBase,
+        icon: iconBase2,
         animation: google.maps.Animation.DROP,
         position: {lat: 31.9010, lng: 75.8573},
         title: 'Turtle 2'
