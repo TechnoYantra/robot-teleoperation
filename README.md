@@ -10,7 +10,13 @@ Robust outdoor teleoperation to increase efficiency and reduce costs based on RO
 - [x] Publish Image Data to web browser
 - [x] Publish topic through web page
 - [x] GUI for the robot
-- Launch the simulator
+- [x] Unit Test Added
+- [ ] Waypoint Navigation with GPS
+- [x] Real-time GPS location
+- [ ] Draw polygon on the map 
+
+## Steps
+
 ```
 roslaunch turtle_pkg two_turtlebot3.launch  
 ```
