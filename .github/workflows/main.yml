@@ -46,6 +46,7 @@ jobs:
           catkin_make
       - name: test
         run: |
+          source /opt/ros/$ROS_DISTRO/setup.bash
           cd ~/catkin_ws
           catkin_make run_tests && catkin_test_results
           
