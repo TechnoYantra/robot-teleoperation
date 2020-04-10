@@ -43,18 +43,20 @@
 		fix_listener1.subscribe(function(m) {
 			//document.getElementById("msglong1").innerHTML = m.longitude;
       console.log('change marker position was called')
-      var lng = m.longitude;
-      var lat = m.latitude;
-      changeMarkerPosition(marker, lat, lng);
+      
+			document.getElementById("msglong1").innerHTML = m.longitude;
+      document.getElementById("msglat1").innerHTML = m.latitude;
+      
 			//move(0.5, 0)
 		});
 		
 		fix_listener2.subscribe(function(m) {
 			//document.getElementById("msglong2").innerHTML = m.longitude;
 			console.log('change marker 2 position was called');
-      var lng = m.longitude;
-      var lat = m.latitude;
-      changeMarkerPosition2(marker2, lat, lng);
+      
+			document.getElementById("msglong2").innerHTML = m.longitude;
+      document.getElementById("msglat2").innerHTML = m.latitude;
+      
       //move(0.5, 0)
 		});
 
@@ -396,9 +398,16 @@ manager.on('move', function (event, nipple) {
     Plan
 </h2>
 <center>
-    <div style="height: 400px; width: 640px;">
-        <div id="map"></div>
-        </div>    
+  <h4>Robot1</h4>
+  <p>longitude: <span id="msglong1"></span>
+  <p> latitude: <span id="msglat1"></span></p>
+
+  <br><br><br>
+
+  <h4>Robot2</h4>
+  <p>longitude: <span id="msglong2"></span>
+  <p> latitude: <span id="msglat2"></span></p>
+      
 </center>
 
 <hr>
