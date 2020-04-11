@@ -12,7 +12,7 @@ Robust outdoor teleoperation to increase efficiency and reduce costs based on RO
 - [x] GUI for the robot
 
 ## Steps to follow
-```
+
 - Launch the simulator
 ```
 roslaunch turtle_pkg main.launch  
