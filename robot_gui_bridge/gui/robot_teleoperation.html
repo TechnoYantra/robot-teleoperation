@@ -316,23 +316,23 @@ manager.on('move', function (event, nipple) {
 
 
     function changeMarkerPosition(marker, lat, lng) {
-        var latlng = new google.maps.LatLng((lat-19), (lng+66));
-        console.log(lat-19);
-        console.log(lng+66);
+        var latlng = new google.maps.LatLng((lat), (lng));
+        console.log(lat);
+        console.log(lng);
         marker.setPosition(latlng);
       }
 
     function changeMarkerPosition2(marker2, lat, lng) {
-        var latlng = new google.maps.LatLng((lat-18), (lng+65));
-        console.log(lat-18);
-        console.log(lng+65);
+        var latlng = new google.maps.LatLng((lat), (lng));
+        console.log(lat);
+        console.log(lng);
         marker2.setPosition(latlng);
       }
 
     function initMap() {
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 20,
-        center: {lat: 30.9010, lng: 75.8573}
+        zoom: 22,
+        center: {lat: 49.8998584993, lng: 8.90003176876}
       });
 
       // adding custom marker
@@ -345,7 +345,7 @@ manager.on('move', function (event, nipple) {
         draggable: true,
         icon: iconBase1,
         animation: google.maps.Animation.DROP,
-        position: {lat: 30.9010, lng: 75.8573},
+        position: {lat: 49.8998584993, lng: 8.90003176876},
         title: 'Turtle 1'
       });
       marker.addListener('click', toggleBounce);
@@ -357,10 +357,10 @@ manager.on('move', function (event, nipple) {
         draggable: true,
         icon: iconBase2,
         animation: google.maps.Animation.DROP,
-        position: {lat: 31.9010, lng: 75.8573},
+        position: {lat: 49.8998584993, lng: 8.90003176876},
         title: 'Turtle 2'
       });
-      marker2.addListener('click', toggleBounce);
+      marker2.addListener('click', toggleBounce2);
 
       // second marker
       //marker2 = new google.maps.Marker({
@@ -395,6 +395,15 @@ manager.on('move', function (event, nipple) {
         marker.setAnimation(null);
       } else {
         marker.setAnimation(google.maps.Animation.BOUNCE);
+      }
+    }
+
+
+    function toggleBounce2() {
+      if (marker2.getAnimation() !== null) {
+        marker2.setAnimation(null);
+      } else {
+        marker2.setAnimation(google.maps.Animation.BOUNCE);
       }
     }
     
