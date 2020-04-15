@@ -10,10 +10,12 @@ Robust outdoor teleoperation to increase efficiency and reduce costs based on RO
 - [x] Publish Image Data to web browser
 - [x] Publish topic through web page
 - [x] GUI for the robot
+- [x] Unit Test Added
+- [ ] Waypoint Navigation with GPS
+- [x] Real-time GPS location
+- [ ] Draw polygon on the map 
 
 ## Steps
-
-<hr>
 
 ## Test Result 
 Publishing the image stream to the web
@@ -25,7 +27,7 @@ Publishing the image stream to the web
 - install hector gps plugin
 ```
 sudo apt-get install ros-melodic-hector-gazebo-plugins
-```
+'''
 - go to the turtlebot3_description pkg 
 - find the turtlebot3_waffle_pi.gazebo.xacro
 - add the following code between the robot tag
@@ -49,7 +51,7 @@ sudo apt-get install ros-melodic-hector-gazebo-plugins
 Steps to launch the two husky robot
 - got to gui folder of robot_gui_bridge and run this command
 ```
-python3 -m http.server
+roslaunch turtle_pkg main.launch
 ```
 - roslaunch turtle_pkg two_turtlebot3.launch
 - roslaunch robot_gui_bridge websocket.launch
@@ -58,6 +60,15 @@ python3 -m http.server
 localhost:8000
 ```
 - find the robot_teleoperation.html file from there and you are ready to go.
+=======
+
+<hr>
+
+## Test Result 
+Publishing the image stream to the web
+
+![Test Results](./assets/test01.png "Test Results")
+
 
 ## UI Changes
 ![UI for web interface](./assets/test02.png "UI for web interface")
