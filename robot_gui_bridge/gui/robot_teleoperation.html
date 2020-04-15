@@ -319,6 +319,8 @@ manager.on('move', function (event, nipple) {
         var latlng = new google.maps.LatLng((lat), (lng));
         console.log(lat);
         console.log(lng);
+        document.getElementById("lat1").innerHTML = lat;
+        document.getElementById("lng1").innerHTML = lng;
         marker.setPosition(latlng);
       }
 
@@ -326,6 +328,8 @@ manager.on('move', function (event, nipple) {
         var latlng = new google.maps.LatLng((lat), (lng));
         console.log(lat);
         console.log(lng);
+        document.getElementById("lat2").innerHTML = lat;
+        document.getElementById("lng2").innerHTML = lng;
         marker2.setPosition(latlng);
       }
 
@@ -496,6 +500,25 @@ manager.on('move', function (event, nipple) {
     <br>
     <br>
 
+<hr>
+<h2>
+  GPS Coordinates
+</h2>
+
+
+  
+  <h3>Robot 1</h3>
+
+  <h3>Latitude: <span id="lat1"></span></h3>
+
+  <h3>Longitude: <span id="lng1"></span></h3>
+
+
+  <h3>Robot 2</h3>
+
+  <h3>Latitude: <span id="lat2"></span></h3>
+
+  <h3>Longitude: <span id="lng2"></span></h3>
 
 <hr>
 <h2>
@@ -508,6 +531,7 @@ manager.on('move', function (event, nipple) {
 </center>
 
 <hr>
+
 
 <button type="button" style="width: 250px;">Load saved path</button><br>
 <br>
