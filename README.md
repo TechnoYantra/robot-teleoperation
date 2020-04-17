@@ -28,7 +28,7 @@ Publishing the image stream to the web
 - then add the following code:
 
 ```
-	<!-- Adding the kinect sensor -->
+
 <xacro:include filename="$(find kinect_v2)/urdf/kinect_v2.urdf.xacro" />
 
   <xacro:kinect_v2  parent="base_link">
