@@ -26,14 +26,15 @@ Publishing the image stream to the web
 - go the the turtlebot3_description pkg and open the turtlebot3_waffle_pi.gazebo.xacro
 
 - then add the following code:
-    ```
+
+```
 	<!-- Adding the kinect sensor -->
 <xacro:include filename="$(find kinect_v2)/urdf/kinect_v2.urdf.xacro" />
 
   <xacro:kinect_v2  parent="base_link">
     <origin xyz="0 0 0.1" rpy="0 0 0"/>
  </xacro:kinect_v2>
-    ```
+```
 
 ## Steps to add GPS plugin to the robot
 - install hector gps plugin
