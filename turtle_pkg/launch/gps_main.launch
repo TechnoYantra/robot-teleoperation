@@ -6,5 +6,4 @@
     <include file="$(find gps_goal)/launch/initialize_origin.launch">
         <arg name="origin" default="auto"/>
     </include>
-    <node pkg="turtle_pkg" name="grid_to_gps" type="grid_to_gps.py" output="screen"/>
 </launch>

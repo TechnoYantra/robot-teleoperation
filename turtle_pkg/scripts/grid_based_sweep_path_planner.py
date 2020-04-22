@@ -298,9 +298,13 @@ def main():  # pragma: no cover
     reso = 5.0
     planning_animation(ox, oy, reso)
     '''
-    ox = [0.0, 50.0, 50.0, 0.0, 0.0]
-    oy = [0.0, 0.0, 30.0, 30.0, 0.0]
-    reso = 5.0
+    # latitude = 49.9000869191
+    # longitude = 8.89990548393
+    lat = 49.9000869191
+    lng = 8.89990548393
+    ox = [lat, lat+0.0000200, lat+0.0000200, lat, lat]
+    oy = [lng, lng, lng+0.0000200, lng+0.0000200, lng]
+    reso = 0.0000025
     planning_animation(ox, oy, reso)
     '''
     ox = [0.0, 20.0, 50.0, 200.0, 130.0, 40.0, 0.0]
