@@ -13,7 +13,7 @@
 		<param name="sensor_model/max_range" value="100.0" />
 		
 		<!-- data source to integrate (PointCloud2) -->
-        <remap from="cloud_in" to="/passthrough3/output" />
+        <remap from="cloud_in" to="/kinect_V2/depth/points" />
 	
 	</node>
 
