@@ -24,6 +24,8 @@ Publishing the image stream to the web
 
 ## Steps to add Kinect sensor to the turtlebot3
 - go the the turtlebot3_description pkg and open the turtlebot3_waffle_pi.gazebo.xacro
+- compile the pkg and source the files
+- launch the file gps_main.launch in the turle_pkg
 
 - then add the following code:
 
@@ -35,6 +37,12 @@ Publishing the image stream to the web
     <origin xyz="0 0 0.1" rpy="0 0 0"/>
  </xacro:kinect_v2>
 ```
+
+
+## GPS Navigation Steps
+- install the pkgs by sudo apt-get install ros-kinetic-gps-goal ros-kinetic-swri-transform-util
+
+
 
 ## Steps to add GPS plugin to the robot
 - install hector gps plugin
