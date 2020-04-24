@@ -9,6 +9,10 @@ Robust outdoor teleoperation to increase efficiency and reduce costs based on RO
 ```
 export TURTLEBOT3_MODEL=waffle_pi
 ```
+- install the geographiclib pkg
+```
+pip install geographiclib
+```
 - launch the gps_main.launch file
 '''
 roslaunch turtle_pkg gps_main.launch
