@@ -15,7 +15,7 @@ export TURTLEBOT3_MODEL=waffle_pi
 ```
 - install the geographiclib pkg
 ```
-pip install geographiclib
+pip install geographiclib rospkg
 ```
 - launch the gps_main.launch file
 '''
