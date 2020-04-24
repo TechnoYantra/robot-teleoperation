@@ -16,7 +16,16 @@ export TURTLEBOT3_MODEL=waffle_pi
 - install the geographiclib pkg
 ```
 pip install geographiclib rospkg
+
 ```
+-- install dependencies for python3
+
+```
+sudo apt-get install python3-pip python3-yaml
+sudo pip3 install rospkg catkin_pkg
+pip3 install matplotlib
+```
+
 - launch the gps_main.launch file
 '''
 roslaunch turtle_pkg gps_main.launch
