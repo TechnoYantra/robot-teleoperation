@@ -1,0 +1,32 @@
+<!--
+  Duckbot navigation simulation:
+  - stage
+  - map_server
+  - move_base
+  - static_map
+  - amcl
+  - rviz view
+-->
+
+<launch>
+
+  <!-- Launch the world file -->
+  <!-- Load the DuckBot URDF model into parameter server -->
+  <!-- Map file -->
+  <arg name="map_file" value="$(find turtle_pkg)/maps/blank_map.yaml"/>
+  <!-- Adding Initialization Localization -->
+  <!-- Launching the map server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+  <!-- Launching the amcl diff -->
+  <include file="$(find amcl)/examples/amcl_diff.launch" />
+  <!-- Extra XML code to launch move_base -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find turtle_pkg)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find turtle_pkg)/config/costmap_common_params.yaml" command="load" ns= "local_costmap" />
+    <rosparam file="$(find turtle_pkg)/config/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find turtle_pkg)/config/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find turtle_pkg)/config/base_local_planner_params.yaml" command="load" />
+  </node>
+  <!--  **************** Visualisation ****************  -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find turtle_pkg)/my_rviz.rviz"/>
+</launch>
