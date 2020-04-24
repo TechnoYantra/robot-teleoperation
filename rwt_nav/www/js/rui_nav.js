@@ -92,9 +92,20 @@ function nav() {
         registerMouseHandlers();	
 }
 
+function buttons() {
+    var bl1 = document.getElementById("bl1");
+
+    bl1.addEventListener("click", function() {
+        console.log("clicked")
+
+        bl1.disabled = true;
+    });
+}
+
 
 
 window.onload = function () {
     rosconnection();
     nav();
+    buttons();
 }

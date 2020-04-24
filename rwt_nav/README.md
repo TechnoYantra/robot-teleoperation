@@ -7,12 +7,6 @@ Usage
 roslaunch rwt_nav rwt_nav.launch
 ```
 
-Open your browser, and access to:
-
-`http://<your host name>:8000/rwt_nav/`
-
-for example : `http://localhost:8000/rwt_nav/`
-
 To view live location of robot :
 ```
 rosrun robot_pose_publisher robot_pose_publisher
@@ -23,8 +17,16 @@ rosrun robot_pose_publisher robot_pose_publisher
 
 Launch the amcl node and move_base node.
 
-Click anywhere on the map to give goal position and direction.
+Open your browser, and access to:
 
-- Goal will be marked with red arrow.
+`http://<your host name>:8000/rwt_nav/`
 
-![rwt_nav.png](images/rwt_nav.png)
+for example : `http://localhost:8000/rwt_nav/`
+
+Click on start job and mark four points on the map.
+
+Run the following command in terminal to get the four coordinate points of the map.
+```
+rostopic echo /yug_pose
+```
+

@@ -101,39 +101,63 @@ NAV2D.Navigator = function(options) {
    *
    * @param pose - the goal pose
    */
+
+  var i = 0;
+  var yug_pose = new ROSLIB.Topic({
+        ros : ros,
+        name : '/yug_pose',
+        messageType : 'geometry_msgs/Twist'
+  });  
+
   function sendGoal(pose) {
+
     // create a goal
-    var goal = new ROSLIB.Goal({
-      actionClient : actionClient,
-      goalMessage : {
-        target_pose : {
-          header : {
-            frame_id : '/map'
-          },
-          pose : pose
-        }
+    var bl1 = document.getElementById("bl1");
+
+    bl1.addEventListener("click", function() {
+        console.log("clicked")
+        bl1.disabled = true;
+    });
+
+    if(bl1.disabled == true)
+    {
+
+      // create a marker for the goal
+        var goalMarker = new ROS2D.NavigationArrow({
+          size : 5,
+          strokeSize : 0.05,
+          fillColor : createjs.Graphics.getRGB(255, 64, 128, 0.66),
+          pulse : false
+        });
+        goalMarker.x = pose.position.x;
+        goalMarker.y = -pose.position.y;
+        goalMarker.rotation = stage.rosQuaternionToGlobalTheta(pose.orientation);
+        goalMarker.scaleX = 1.0 / stage.scaleX;
+        goalMarker.scaleY = 1.0 / stage.scaleY;
+        that.rootObject.addChild(goalMarker);
+        i++;
+   
+        var twist = new ROSLIB.Message({
+         linear : {
+           x : pose.position.x,
+           y : pose.position.y,
+           z : 0
+         },
+         angular : {
+           x : 0,
+           y : 0,
+           z : 0
+         }
+       });
+       yug_pose.publish(twist);
       }
-    });
-    // goal.send();
 
-    // create a marker for the goal
-    var goalMarker = new ROS2D.NavigationArrow({
-      size : 5,
-      strokeSize : 0.05,
-      fillColor : createjs.Graphics.getRGB(255, 64, 128, 0.66),
-      pulse : false
-    });
-    goalMarker.x = pose.position.x;
-    goalMarker.y = -pose.position.y;
-    goalMarker.rotation = stage.rosQuaternionToGlobalTheta(pose.orientation);
-    goalMarker.scaleX = 1.0 / stage.scaleX;
-    goalMarker.scaleY = 1.0 / stage.scaleY;
-    that.rootObject.addChild(goalMarker);
-
-    goal.on('result', function() {
-      that.rootObject.removeChild(goalMarker);
-    });
-  }
+    if(i == 4)
+    {
+      bl1.disabled = false;
+      i = 0;
+    }
+}
 
   // get a handle to the stage
   var stage;
@@ -283,7 +307,7 @@ NAV2D.Navigator = function(options) {
         });
         // send the goal
         sendGoal(pose);
-	console.log(pose.position)
+	     console.log(pose.position)
       }
     }
     };
