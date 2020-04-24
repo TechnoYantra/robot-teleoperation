@@ -42,6 +42,9 @@ Publishing the image stream to the web
 ## GPS Navigation Steps
 - install the pkgs by sudo apt-get install ros-kinetic-gps-goal ros-kinetic-swri-transform-util
 
+- compile the pkgs and source them
+- then launch the gps_main.launch file from the turtle_pkg
+
 
 
 ## Steps to add GPS plugin to the robot
