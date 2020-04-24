@@ -2,6 +2,19 @@
 
 Robust outdoor teleoperation to increase efficiency and reduce costs based on ROS
 
+## Instructions
+- add the xacro file in the turtle_pkg/urdf to the turtlebot3_description/urdf (copy pase or replace)
+- compile the packages and source them
+- run the cmd
+```
+export TURTLEBOT3_MODEL=waffle_pi
+```
+- launch the gps_main.launch file
+'''
+roslaunch turtle_pkg gps_main.launch
+'''
+
+
 [![Build Status](https://travis-ci.org/sachinkum0009/robot-teleoperation.svg?branch=master)](https://travis-ci.org/sachinkum0009/robot-teleoperation)
 
 ### To Do
