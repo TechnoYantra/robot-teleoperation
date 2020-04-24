@@ -4,6 +4,10 @@ Robust outdoor teleoperation to increase efficiency and reduce costs based on RO
 
 ## Instructions
 - add the xacro file in the turtle_pkg/urdf to the turtlebot3_description/urdf (copy pase or replace)
+- install dependencies
+'''
+sudo apt-get install ros-kinetic-gps-goal ros-kinetic-swri-transform-ut
+'''
 - compile the packages and source them
 - run the cmd
 ```
@@ -17,7 +21,7 @@ pip install geographiclib
 '''
 roslaunch turtle_pkg gps_main.launch
 '''
-
+- after launching it
 
 [![Build Status](https://travis-ci.org/sachinkum0009/robot-teleoperation.svg?branch=master)](https://travis-ci.org/sachinkum0009/robot-teleoperation)
 
