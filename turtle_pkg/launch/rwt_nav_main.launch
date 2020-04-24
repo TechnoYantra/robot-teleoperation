@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_empty_world.launch"/>
+    <include file="$(find turtle_pkg)/launch/navigation.launch"/>
+    <include file="$(find gps_goal)/launch/gps_goal.launch"/>
+    <include file="$(find gps_goal)/launch/initialize_origin.launch">
+        <arg name="origin" default="auto"/>
+    </include>
+    <include file="$(find rwt_nav)/launch/rwt_nav.launch"/>
+    <node pkg="robot_pose_publisher" type="robot_pose_publisher" name="robot_pose_publisher"/>
+</launch>
