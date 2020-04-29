@@ -7,4 +7,10 @@
     <include file="$(find gps_goal)/launch/initialize_origin.launch">
         <arg name="origin" default="auto"/>
     </include>
+    <include file="$(find rwt_nav)/launch/rwt_nav.launch"/>
+    <node pkg="robot_pose_publisher" type="robot_pose_publisher" name="robot_pose_publisher"/>
+    
+    <node pkg="turtle_pkg" type="start_goal_server.py" name="start_goal_server" />
+    <node pkg="turtle_pkg" type="int_publisher.py" name="int_publisher"/>
+
 </launch>

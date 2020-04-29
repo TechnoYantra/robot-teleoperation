@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import rospy
 from std_srvs.srv import Empty
 
@@ -9,6 +10,7 @@ from move_base_msgs.msg import MoveBaseActionResult
 def main():
     rospy.init_node('start_goal_server')
     def start_move(request):
+        print('done')
         data = MoveBaseActionResult()
         data.status.status = 3
         pub.publish(data)

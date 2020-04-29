@@ -28,8 +28,10 @@ class GridPathPlannig:
         ox = [msg.lat1, msg.lat2, msg.lat3, msg.lat4, msg.lat1]
         oy = [msg.lng1, msg.lng2, msg.lng3, msg.lng4, msg.lng1]
 
-        reso = 5.0
+        reso = 1.0
         rospy.loginfo('got points')
+        print(ox)
+        print(oy)
 
         self.px, self.py = planning(ox, oy, reso)
         print(self.px)

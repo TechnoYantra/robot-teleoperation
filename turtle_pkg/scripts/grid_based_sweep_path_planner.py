@@ -297,7 +297,7 @@ def main():  # pragma: no cover
     oy = [0.0, -20.0, 0.0, 30.0, 60.0, 80.0, 0.0]
     reso = 5.0
     planning_animation(ox, oy, reso)
-    '''
+    
     # latitude = 49.9000869191
     # longitude = 8.89990548393
     lat = 49.9000869191
@@ -306,12 +306,17 @@ def main():  # pragma: no cover
     oy = [lng, lng, lng+0.0000200, lng+0.0000200, lng]
     reso = 0.0000025
     planning_animation(ox, oy, reso)
-    '''
+    
     ox = [0.0, 20.0, 50.0, 200.0, 130.0, 40.0, 0.0]
     oy = [0.0, -80.0, 0.0, 30.0, 60.0, 80.0, 0.0]
     reso = 5.0
     planning_animation(ox, oy, reso)
     '''
+
+    ox = [-1.9739989042282104, -1.379998803138733, 3.4260013103485107, 2.9400012493133545, -1.9739989042282104]
+    oy = [4.129800796508789, -3.9701993465423584, -3.2141993045806885, 3.9138009548187256, 4.129800796508789]
+    reso = 1.0
+    planning_animation(ox, oy, reso)
     plt.show()
 
     print("done!!")

@@ -20,7 +20,12 @@ function rosconnection() {
     
 }
 
+
 function nav() {
+
+
+    var points = [];
+
     var viewer = new ROS2D.Viewer({
         divID : 'map',
         width : 1000,
@@ -45,7 +50,7 @@ function nav() {
     });
            
         function registerMouseHandlers() {
-                
+
             var mouseDown = false;
             var zoomKey = false;
             var panKey = false;
@@ -63,6 +68,10 @@ function nav() {
                 }
                 startPos.x = event.stageX;
                 startPos.y = event.stageY;
+                points.push(parseInt(startPos.x));
+                points.push(parseInt(startPos.y));
+                console.log('points are as');
+                console.log(points);
                 mouseDown = true;
             });
             
@@ -93,13 +102,35 @@ function nav() {
 }
 
 function buttons() {
+
+    
+
+
     var bl1 = document.getElementById("bl1");
+    var bl2 = document.getElementById("bl2")
 
     bl1.addEventListener("click", function() {
         console.log("clicked")
 
         bl1.disabled = true;
     });
+
+    bl2.addEventListener("click", function() {
+        console.log("Starting the job")
+        var startJob = new ROSLIB.Service({
+            ros : ros,
+            name : '/start_goal_server',
+            serviceType : 'std_srvs/Empty'
+        });
+        var request = new ROSLIB.ServiceRequest({
+               });
+        startJob.callService(request, function(result) {
+                 console.log('Result for service call on ');
+               });
+
+        bl2.disabled = true;
+    });
+
 }
 
 
