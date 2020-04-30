@@ -28,12 +28,21 @@ class GridPathPlannig:
         ox = [msg.lat1, msg.lat2, msg.lat3, msg.lat4, msg.lat1]
         oy = [msg.lng1, msg.lng2, msg.lng3, msg.lng4, msg.lng1]
 
-        reso = 1.0
+        reso = 3.0
         rospy.loginfo('got points')
         print(ox)
         print(oy)
 
-        self.px, self.py = planning(ox, oy, reso)
+        self.ix, self.iy = planning(ox, oy, reso)
+        self.px = []
+        self.py = []
+        i = 0
+        while i <=(len(self.ix)-1):
+            self.px.append(self.ix[i])
+            self.py.append(self.iy[i])
+            i = i + 3 
+
+        self.end_point = len(self.px)
         print(self.px)
         print('--------')
         print(self.py)
@@ -65,10 +74,10 @@ class GridPathPlannig:
         gps_pub = rospy.Publisher('/gps_goal_fix', NavSatFix, queue_size=10)
         gps_data = NavSatFix()
         gps_data.header.frame_id='/world'
-        gps_data.latitude=self.lat+(0.0000001000*self.px[self.i])
-        rospy.loginfo('latitude is : '+str(self.lat+(0.0000001000*self.px[self.i])))
-        gps_data.longitude=self.lng+(0.0000001000*self.py[self.i])
-        rospy.loginfo('longitude is : '+str(self.lng+(0.0000001000*self.py[self.i])))
+        gps_data.latitude=self.lat+(0.0000010000*self.px[self.i])
+        rospy.loginfo('latitude is : '+str(self.lat+(0.0000010000*self.px[self.i])))
+        gps_data.longitude=self.lng+(0.0000010000*self.py[self.i])
+        rospy.loginfo('longitude is : '+str(self.lng+(0.0000010000*self.py[self.i])))
         rospy.logerr('number is '+str(self.i))
         rospy.loginfo('publishing next goal')
         gps_pub.publish(gps_data)
@@ -81,10 +90,10 @@ class GridPathPlannig:
         gps_data = NavSatFix()
         gps_data.header.frame_id='/world'
         rospy.logerr('number is '+str(self.i))
-        gps_data.latitude=self.lat+(0.0000001000*self.px[self.i])
-        rospy.loginfo('latitude is : '+str(self.lat+(0.0000001000*self.px[self.i])))
-        gps_data.longitude=self.lng+(0.0000001000*self.py[self.i])
-        rospy.loginfo('longitude is : '+str(self.lng+(0.0000001000*self.py[self.i])))
+        gps_data.latitude=self.lat+(0.0000010000*self.px[self.i])
+        rospy.loginfo('latitude is : '+str(self.lat+(0.0000010000*self.px[self.i])))
+        gps_data.longitude=self.lng+(0.0000010000*self.py[self.i])
+        rospy.loginfo('longitude is : '+str(self.lng+(0.0000010000*self.py[self.i])))
         rospy.loginfo('publishing next goal')
         gps_pub.publish(gps_data)
 
