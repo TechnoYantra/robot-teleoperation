@@ -152,7 +152,7 @@ NAV2D.Navigator = function(options) {
        yug_pose.publish(twist);
       }
 
-    if(i == 4)
+    if(i == 5)
     {
       bl1.disabled = false;
       i = 0;

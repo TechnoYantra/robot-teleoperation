@@ -27,7 +27,7 @@ function nav() {
     var points = [];
 
     var viewer = new ROS2D.Viewer({
-        divID : 'map',
+        divID : 'myMap',
         width : 1000,
         height : 500,
 	    background : '#FFFFFF'
