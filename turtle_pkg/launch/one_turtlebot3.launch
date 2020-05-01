@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<launch>
-    <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_empty_world.launch">
-        <arg name="world_name" value="$(find turtle_pkg)/worlds/my_world.world"/>
-
-    </include>
-</launch>

@@ -1,6 +1,0 @@
-<launch>
-    <include file="$(find turtle_pkg)/launch/two_turtlebot3.launch"/>
-    <include file="$(find turtle_pkg)/launch/server.launch"/>
-    <include file="$(find robot_gui_bridge)/launch/websocket.launch"/>
-    
-</launch>
