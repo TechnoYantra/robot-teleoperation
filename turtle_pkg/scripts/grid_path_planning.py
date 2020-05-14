@@ -1,4 +1,4 @@
-#! /home/hunter/development/anaconda3/bin/python
+#! /usr/bin/env python3
 
 import rospy
 from grid_based_sweep_path_planner import planning
@@ -74,10 +74,10 @@ class GridPathPlannig:
         gps_pub = rospy.Publisher('/gps_goal_fix', NavSatFix, queue_size=10)
         gps_data = NavSatFix()
         gps_data.header.frame_id='/world'
-        gps_data.latitude=self.lat+(0.0000010000*self.px[self.i])
-        rospy.loginfo('latitude is : '+str(self.lat+(0.0000010000*self.px[self.i])))
-        gps_data.longitude=self.lng+(0.0000010000*self.py[self.i])
-        rospy.loginfo('longitude is : '+str(self.lng+(0.0000010000*self.py[self.i])))
+        gps_data.latitude=self.lat+(0.0000001000*self.px[self.i])
+        rospy.loginfo('latitude is : '+str(self.lat+(0.0000001000*self.px[self.i])))
+        gps_data.longitude=self.lng+(0.0000001000*self.py[self.i])
+        rospy.loginfo('longitude is : '+str(self.lng+(0.0000001000*self.py[self.i])))
         rospy.logerr('number is '+str(self.i))
         rospy.loginfo('publishing next goal')
         gps_pub.publish(gps_data)
@@ -90,10 +90,10 @@ class GridPathPlannig:
         gps_data = NavSatFix()
         gps_data.header.frame_id='/world'
         rospy.logerr('number is '+str(self.i))
-        gps_data.latitude=self.lat+(0.0000010000*self.px[self.i])
-        rospy.loginfo('latitude is : '+str(self.lat+(0.0000010000*self.px[self.i])))
-        gps_data.longitude=self.lng+(0.0000010000*self.py[self.i])
-        rospy.loginfo('longitude is : '+str(self.lng+(0.0000010000*self.py[self.i])))
+        gps_data.latitude=self.lat+(0.0000001000*self.px[self.i])
+        rospy.loginfo('latitude is : '+str(self.lat+(0.0000001000*self.px[self.i])))
+        gps_data.longitude=self.lng+(0.0000001000*self.py[self.i])
+        rospy.loginfo('longitude is : '+str(self.lng+(0.0000001000*self.py[self.i])))
         rospy.loginfo('publishing next goal')
         gps_pub.publish(gps_data)
 

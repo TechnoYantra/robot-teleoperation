@@ -185,12 +185,11 @@ Robust outdoor teleoperation to increase efficiency and reduce costs based on RO
 ## Install Dependencies
 - Install following pkgs
 ```
-sudo apt-get install ros-kinetic-gps-goal ros-kinetic-swri-transform-ut
+sudo apt install ros-melodic-pointcloud-to-laserscan
 ```
 - install the pkgs 
 ```
-sudo apt-get install 
-ros-kinetic-gps-goal ros-kinetic-swri-transform-util
+sudo apt-get install ros-kinetic-gps-goal ros-kinetic-swri-transform-util
 
 ```
 - install hector gps plugin
@@ -246,11 +245,9 @@ http://localhost:8000/rwt_nav/
 - [x] Publish topic through web page
 - [x] GUI for the robot
 - [x] Unit Test Added
-- [ ] Waypoint Navigation with GPS
+- [x] Waypoint Navigation with GPS
 - [x] Real-time GPS location
-- [ ] Draw polygon on the map 
+- [x] Draw polygon on the map 
 
 
 
-
-```
