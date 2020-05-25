@@ -42,6 +42,8 @@ jobs:
           cd src
           echo $PWD
           ls
+          cd ..
+          
           source devel/setup.bash
           cd ~/catkin_ws/src
           ln -s ~/work  # $CI_SOURCE_PATH
@@ -50,7 +52,7 @@ jobs:
           # cd robot-teleoperation/
           echo $PWD
           ls
-          
+
           chmod +x setup.bash
           echo $PWD
           ls
