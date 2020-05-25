@@ -63,8 +63,11 @@ jobs:
           sudo ./setup.sh
           echo $PWD
           ls
+          echo "done till here"
+          cd ../../../../
+          ls
 
-          cd ~/catkin_ws
+          #cd ~/catkin_ws
           
           #cd ..
           catkin_make
