@@ -40,6 +40,8 @@ jobs:
           echo $PWD
           ls
           cd src
+          catkin_init_workspace
+          
           echo $PWD
           ls
           cd ..
@@ -68,10 +70,11 @@ jobs:
           ls
 
           #cd ~/catkin_ws
-          catkin_init_workspace
+          #catkin_init_workspace
           
           #cd ..
           catkin_make
+
       - name: test
         run: |
           source /opt/ros/$ROS_DISTRO/setup.bash
