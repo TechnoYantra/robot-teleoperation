@@ -68,6 +68,7 @@ jobs:
           ls
 
           #cd ~/catkin_ws
+          catkin_init_workspace
           
           #cd ..
           catkin_make
