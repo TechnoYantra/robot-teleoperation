@@ -11,18 +11,21 @@ sudo apt install ros-melodic-turtlebot3*
 
 
 echo "installing pip dependencies"
-#python -m pip install geographiclib rospkg
-#python3 -m pip install rospkg catkin_pkg
-#python3 -m pip install matplotlib
+python -m pip install geographiclib rospkg
+python3 -m pip install rospkg catkin_pkg
+python3 -m pip install matplotlib
 
 echo "cloning github repositories"
 cd ..
-#git clone https://github.com/danielsnider/gps_goal.git
-#git clone https://github.com/GT-RAIL/robot_pose_publisher.git
+git clone https://github.com/danielsnider/gps_goal.git
+git clone https://github.com/GT-RAIL/robot_pose_publisher.git
+git clone https://github.com/sachinkum0009/turtlebot3.git
+git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
 
-echo "changing urdf files"
-echo $PWD
-sudo cp robot-teleoperation/turtle_pkg/urdf/turtlebot3_waffle_pi.gazebo.xacro  /opt/ros/melodic/share/turtlebot3_description/urdf/turtlebot3_waffle_pi.gazebo.xacro
+echo "changing the branch of turtlebot3 to melodic-devel"
+cd turtlebot3
+git checkout melodic-devel
+cd ..
 
 echo "done with the setup"
 
