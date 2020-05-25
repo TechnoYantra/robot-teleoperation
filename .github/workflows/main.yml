@@ -40,7 +40,7 @@ jobs:
           echo $PWD
           ls
           cd src
-          catkin_init_workspace
+          #catkin_init_workspace
           
           echo $PWD
           ls
