@@ -59,8 +59,8 @@ jobs:
           cd robot-teleoperation
           ls
 
-          chmod +x setup.bash
-          sudo ./setup.bash
+          chmod +x setup.sh
+          sudo ./setup.sh
           echo $PWD
           ls
 
