@@ -42,10 +42,13 @@ jobs:
           ln -s ~/work  # $CI_SOURCE_PATH
           # echo "::warning $CI_SOURCE_PATH"
           # echo "::warning `ls -l`"
-          cd robot-teleoperation/
+          # cd robot-teleoperation/
           chmod +x setup.bash
+          echo $PWD
+          ls
+
           sudo ./setup.bash
-          cd ~/catkin_ws
+          #cd ~/catkin_ws
           
           cd ..
           catkin_make
