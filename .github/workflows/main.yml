@@ -37,6 +37,8 @@ jobs:
           cd ~/catkin_ws
           rosdep install --from-path src --ignore-src -y
           catkin_make
+          echo $PWD
+          ls
           source devel/setup.bash
           cd ~/catkin_ws/src
           ln -s ~/work  # $CI_SOURCE_PATH
