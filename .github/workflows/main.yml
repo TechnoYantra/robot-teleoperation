@@ -88,6 +88,7 @@ jobs:
           #catkin_init_workspace
           
           #cd ..
+          rosdep install --from-paths src --ignore-src
 
           catkin_make
 
