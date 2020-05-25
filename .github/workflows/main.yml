@@ -73,6 +73,8 @@ jobs:
           #catkin_init_workspace
           
           #cd ..
+          source /opt/ros/$ROS_DISTRO/setup.bash
+
           catkin_make
 
       - name: test
