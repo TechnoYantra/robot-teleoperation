@@ -61,11 +61,14 @@ jobs:
           
           echo $PWD
           ls
-          git clone https://github.com/danielsnider/gps_goal.git
           git clone https://github.com/GT-RAIL/robot_pose_publisher.git
           git clone https://github.com/sachinkum0009/turtlebot3.git
           git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
           git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
+          rosdep install --from-paths . -y
+
+          git clone https://github.com/danielsnider/gps_goal.git
+
           ls
           #cd work
           #ls
@@ -88,8 +91,7 @@ jobs:
           #catkin_init_workspace
           
           #cd ..
-          rosdep install --from-paths src --ignore-src -i gps_goal
-
+          
           catkin_make
 
       - name: test
