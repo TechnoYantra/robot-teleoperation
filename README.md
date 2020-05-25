@@ -5,9 +5,22 @@ Robust outdoor teleoperation to increase efficiency and reduce costs based on RO
 [![Build Status](https://travis-ci.org/sachinkum0009/robot-teleoperation.svg?branch=master)](https://travis-ci.org/sachinkum0009/robot-teleoperation)
 
 ## Instructions
-- add the xacro file in the turtle_pkg/urdf to the turtlebot3_description/urdf (copy pase or replace)
+
+- clone the pkg
+
+```bash
+git clone https://github.com/sachinkum0009/robot-teleoperation.git
+cd robot-teleoperation
+git checkout dev
+cd turtle_pkg
+
+cd ../..
+
 ```
 
+- add the xacro file in the turtle_pkg/urdf to the turtlebot3_description/urdf (copy pase or replace)
+
+```xml
 <?xml version="1.0"?>
 <robot name="turtlebot3_waffle_pi_sim" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:arg name="laser_visual"  default="false"/>
@@ -18,7 +31,7 @@ Robust outdoor teleoperation to increase efficiency and reduce costs based on RO
     <material>Gazebo/DarkGrey</material>
   </gazebo>
 
- 
+
  <!-- Adding the kinect sensor -->
 <xacro:include filename="$(find kinect_v2)/urdf/kinect_v2.urdf.xacro" />
 
@@ -142,7 +155,7 @@ Robust outdoor teleoperation to increase efficiency and reduce costs based on RO
     </plugin>
   </gazebo>
 
- 
+
 
 <!--link : https://www.raspberrypi.org/documentation/hardware/camera/-->
   <gazebo reference="camera_rgb_frame">
@@ -181,29 +194,40 @@ Robust outdoor teleoperation to increase efficiency and reduce costs based on RO
 </robot>
 ```
 
-
 ## Install Dependencies
+
 - Install following pkgs
-```
+
+```bash
 sudo apt install ros-melodic-pointcloud-to-laserscan
 ```
-- install the pkgs 
-```
+
+- install the pkgs
+
+```bash
 sudo apt-get install ros-kinetic-gps-goal ros-kinetic-swri-transform-util
 
 ```
+
 - install hector gps plugin
-```
+
+```bash
+
 sudo apt-get install ros-melodic-hector-gazebo-plugins
 ```
+
 - install the geographiclib pkg
-```
+
+```bash
+
 pip install geographiclib rospkg
 
 ```
+
 - install dependencies for python3
 
-```
+```bash
+
 sudo apt-get install python3-pip python3-yaml
 sudo pip3 install rospkg catkin_pkg
 pip3 install matplotlib
@@ -211,35 +235,43 @@ pip3 install matplotlib
 
 - There are some other dependencies for rwt_nav pkg
 
-
 ## Steps
+
 - run the cmd
-```
+
+```bash
+
 export TURTLEBOT3_MODEL=waffle_pi
 ```
 
-
 - launch the  file
-```
+
+```bash
 roslaunch turtle_pkg gps_pc2sn_main.launch
 ```
+
 - after launching it if using conda
-```
+
+```bash
 python grid_path_planning.py
 ```
+
 - otherwise this line of the grid_path_planning.py
-```
+
+```bash
+
 #! /usr/bin/env python
 ```
 
 - now you can open the browser and go to the url
-```
+
+```bash
 http://localhost:8000/rwt_nav/
 ```
 
-
 ### To Do
-- [x] Step to run <b>Robot</b>
+
+- [x] Step to run Robot
 - [x] Setup web server
 - [x] Publish Image Data to web browser
 - [x] Publish topic through web page
@@ -247,7 +279,4 @@ http://localhost:8000/rwt_nav/
 - [x] Unit Test Added
 - [x] Waypoint Navigation with GPS
 - [x] Real-time GPS location
-- [x] Draw polygon on the map 
-
-
-
+- [x] Draw polygon on the map
