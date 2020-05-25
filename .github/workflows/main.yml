@@ -73,6 +73,7 @@ jobs:
           #ls
           #cd robot-teleoperation
           #ls
+          cd ..
 
           #chmod +x setup.sh
           #sudo ./setup.sh
