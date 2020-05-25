@@ -34,17 +34,7 @@ git checkout melodic-devel
 cd ..
 
 echo "done with the setup"
-
-echo "now compiling the pkg's"
-
-cd ..
-# install ros dependencies
-rosdep install --from-paths src --ignore-src -y
-# compile the package
-catkin_make
-# source the pkg
-. devel/setup.bash
-
 echo "Ready to launch files"
+echo "compile the workspace with catkin_make"
 echo "run cmd 'export TURTLEBOT3_MODEL=waffle_pi' and 'roslaunch turtle_pkg main.launch' to launch the robot"
 
