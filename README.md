@@ -204,22 +204,12 @@ rosdep install --from-paths src --ignore-src -y
 ```bash
 sudo apt install ros-melodic-pointcloud-to-laserscan
 ```
-<<<<<<< HEAD
 
 - install the pkgs
 
 ```bash
-sudo apt-get install ros-kinetic-gps-goal ros-kinetic-swri-transform-util
-
-=======
-- install the pkgs 
-```
-# sudo apt-get install ros-kinetic-gps-goal
-# above pkg is included in the repository for melodic
-sudo apt-get install ros-kinetic-swri-transform-util
-sudo -H apt-get install -y ros-melodic-roswww 
+sudo -H apt-get install -y ros-melodic-roswww
 sudo -H apt-get install -y ros-melodic-web-video-server
->>>>>>> d37d62a7c006e68d37da22609aff3874ad57b637
 ```
 
 - install hector gps plugin
