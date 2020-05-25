@@ -1,0 +1,33 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/hunter/zzzzz/ros/arm_ws3/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/opt/jderobot/include/**",
+        "/home/hunter/zzzzz/ros/arm_ws3/src/apsara_robot_arm/descartes_capability/include/**",
+        "/home/hunter/zzzzz/ros/arm_ws3/src/apsara_robot_arm/descartes/descartes_core/include/**",
+        "/home/hunter/zzzzz/ros/arm_ws3/src/apsara_robot_arm/descartes/descartes_moveit/include/**",
+        "/home/hunter/zzzzz/ros/arm_ws3/src/apsara_robot_arm/descartes/descartes_planner/include/**",
+        "/home/hunter/zzzzz/ros/arm_ws3/src/apsara_robot_arm/descartes/descartes_tests/include/**",
+        "/home/hunter/zzzzz/ros/arm_ws3/src/apsara_robot_arm/descartes/descartes_trajectory/include/**",
+        "/home/hunter/zzzzz/ros/arm_ws3/src/apsara_robot_arm/descartes/descartes_utilities/include/**",
+        "/home/hunter/zzzzz/ros/arm_ws3/src/apsara_robot_arm/open_manipulator_tc/dynamixel-workbench/dynamixel_workbench_controllers/include/**",
+        "/home/hunter/zzzzz/ros/arm_ws3/src/apsara_robot_arm/open_manipulator_tc/dynamixel-workbench/dynamixel_workbench_single_manager/include/**",
+        "/home/hunter/zzzzz/ros/arm_ws3/src/apsara_robot_arm/open_manipulator_tc/dynamixel-workbench/dynamixel_workbench_single_manager_gui/include/**",
+        "/home/hunter/zzzzz/ros/arm_ws3/src/apsara_robot_arm/open_manipulator_tc/dynamixel-workbench/dynamixel_workbench_toolbox/include/**",
+        "/home/hunter/zzzzz/ros/arm_ws3/src/interbotix_ros_arms/interbotix_examples/interbotix_moveit_interface/include/**",
+        "/home/hunter/zzzzz/ros/arm_ws3/src/interbotix_ros_arms/interbotix_sdk/include/**",
+        "/home/hunter/zzzzz/ros/arm_ws3/src/apsara_robot_arm/open_manipulator_tc/open_manipulator_core/include/**",
+        "/home/hunter/zzzzz/ros/arm_ws3/src/apsara_robot_arm/open_manipulator_tc/open_manipulator_moveit_config/include/**",
+        "/home/hunter/zzzzz/ros/arm_ws3/src/apsara_robot_arm/realsense_gazebo_plugin/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ]
+}
