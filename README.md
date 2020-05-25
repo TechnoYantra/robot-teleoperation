@@ -11,10 +11,13 @@ Robust outdoor teleoperation to increase efficiency and reduce costs based on RO
 ```bash
 git clone https://github.com/sachinkum0009/robot-teleoperation.git
 cd robot-teleoperation
-git checkout dev
-cd turtle_pkg
+git checkout robot
+chmod +x setup.sh
+./setup.bash
 
 cd ../..
+rosdep install --from-paths src --ignore-src -y
+
 
 ```
 
