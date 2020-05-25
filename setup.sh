@@ -4,7 +4,7 @@ echo "Installing dependencies"
 
 # dependencies required for the package
 sudo apt install ros-melodic-pointcloud-to-laserscan
-sudo apt-get install ros-kinetic-swri-transform-util
+sudo apt-get install ros-melodic-swri-transform-util
 sudo -H apt-get install -y ros-melodic-roswww 
 sudo -H apt-get install -y ros-melodic-web-video-server
 sudo apt-get install ros-melodic-hector-gazebo-plugins
