@@ -55,6 +55,7 @@ jobs:
           cd work
           ls
           cd robot-teleoperation/
+          ls
 
           chmod +x setup.bash
           sudo ./setup.bash
