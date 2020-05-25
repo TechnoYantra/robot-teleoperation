@@ -203,6 +203,7 @@ rosdep install --from-paths src --ignore-src -y
 
 ```bash
 sudo apt install ros-melodic-pointcloud-to-laserscan
+ sudo apt install ros-melodic-dwa-local-planner
 ```
 
 - install the pkgs
