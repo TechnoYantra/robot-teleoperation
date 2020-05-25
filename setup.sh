@@ -7,7 +7,6 @@ sudo -H apt-get install -y ros-melodic-roswww
 sudo -H apt-get install -y ros-melodic-web-video-server
 sudo apt-get install ros-melodic-hector-gazebo-plugins
 sudo apt install ros-melodic-dwa-local-planner
-sudo apt install ros-melodic-turtlebot3*
 
 
 echo "installing pip dependencies"
