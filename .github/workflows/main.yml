@@ -48,6 +48,9 @@ jobs:
           # echo "::warning $CI_SOURCE_PATH"
           # echo "::warning `ls -l`"
           # cd robot-teleoperation/
+          echo $PWD
+          ls
+          
           chmod +x setup.bash
           echo $PWD
           ls
