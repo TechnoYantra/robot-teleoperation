@@ -1,4 +1,0 @@
-<launch>
-    <include file="$(find octomap_filter)/launch/pass_filter.launch"/>
-    <include file="$(find octomap_filter)/launch/pointcloud_to_grid_map.launch"/>
-</launch>
