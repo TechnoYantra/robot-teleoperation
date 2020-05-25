@@ -260,7 +260,7 @@ export TURTLEBOT3_MODEL=waffle_pi
 - launch the  file
 
 ```bash
-roslaunch turtle_pkg gps_pc2sn_main.launch
+roslaunch turtle_pkg main.launch
 ```
 
 - after launching it if using conda
