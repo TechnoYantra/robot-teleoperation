@@ -43,7 +43,7 @@ jobs:
           source /opt/ros/$ROS_DISTRO/setup.bash
           mkdir -p ~/catkin_ws/src
           cd ~/catkin_ws
-          rosdep install --from-path src --ignore-src -y
+          #rosdep install --from-path src --ignore-src -y
           catkin_make
           echo $PWD
           ls
