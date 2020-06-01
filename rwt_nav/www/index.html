@@ -36,12 +36,12 @@
 
 		// Subscribing to a Topic
 		var fix_listener1 = new ROSLIB.Topic({
-			ros : ros, 
+			ros : ros,
 			name : '/fix',
 			messageType: 'sensor_msgs/NavSatFix'
 		});
 
-		
+
 
 		fix_listener1.subscribe(function(m) {
 			//document.getElementById("msglong1").innerHTML = m.longitude;
@@ -51,18 +51,18 @@
       changeMarkerPosition(marker, lat, lng);
 			//move(0.5, 0)
 		});
-		
 
-	
+
+
 
 		// Publishing a Topic
 
 		var cmd_vel_listener = new ROSLIB.Topic({
-			ros : ros, 
+			ros : ros,
 			name : "/cmd_vel",
 			messageType : 'geometry_msgs/Twist'
 		});
-	
+
 		// add the virtual joystick
 		createJoystick = function () {
       var options = {
@@ -85,13 +85,13 @@
       linear_speed = 0.8;
     console.log('linear value');
     console.log(linear_speed);
-      
+
   }
   else if (linear_speed < -1.0) {
     linear_speed = -0.8;
     console.log(' linear value');
     console.log(linear_speed);
-      
+
   }
   else {
     console.log('linear value');
@@ -101,19 +101,19 @@
       angular_speed = 0.8;
     console.log('angular value');
     console.log(angular_speed);
-      
+
   }
   else if (angular_speed < -1.0) {
     angular_speed = -0.8;
     console.log('start linear value');
     console.log(angular_speed);
-      
+
   }
   else {
     console.log('angular value');
     console.log(angular_speed);
   }
-  
+
   move(linear_speed, angular_speed);
 	  }
 	  else if (document.getElementById('robot').value == "husky2")
@@ -122,13 +122,13 @@
       linear_speed = 0.8;
     console.log('linear value');
     console.log(linear_speed);
-      
+
   }
   else if (linear_speed < -1.0) {
     linear_speed = -0.8;
     console.log(' linear value');
     console.log(linear_speed);
-      
+
   }
   else {
     console.log('linear value');
@@ -138,22 +138,22 @@
       angular_speed = 0.8;
     console.log('angular value');
     console.log(angular_speed);
-      
+
   }
   else if (angular_speed < -1.0) {
     angular_speed = -0.8;
     console.log('start linear value');
     console.log(angular_speed);
-      
+
   }
   else {
     console.log('angular value');
     console.log(angular_speed);
   }
-  
+
 		move2(linear_speed, angular_speed);
 	  }
-    
+
   }, 25);
 });
 
@@ -192,19 +192,19 @@ manager.on('move', function (event, nipple) {
   if (timer) {
     clearInterval(timer);
   }
-  
+
 		move(0, 0);
-	  
+
 });
     }
-    
+
 
     // The following example creates a marker in Stockholm, Sweden using a DROP
     // animation. Clicking on the marker will toggle the animation between a BOUNCE
     // animation and no animation.
 
     var marker;
-  
+
 
 
     function changeMarkerPosition(marker, lat, lng) {
@@ -216,7 +216,7 @@ manager.on('move', function (event, nipple) {
         marker.setPosition(latlng);
       }
 
-  
+
     function initMap() {
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 22,
@@ -225,7 +225,7 @@ manager.on('move', function (event, nipple) {
 
       // adding custom marker
       var iconBase1 = 'robot1.png';
-  
+
       marker = new google.maps.Marker({
         map: map,
         draggable: true,
@@ -237,7 +237,7 @@ manager.on('move', function (event, nipple) {
       marker.addListener('click', toggleBounce);
 
       // second marker
-      
+
       // second marker
       //marker2 = new google.maps.Marker({
         //map: map,
@@ -250,7 +250,7 @@ manager.on('move', function (event, nipple) {
       // var lat = 30.9010;
       // var lng = 75.8573;
 
-      
+
 
     //function turtle_logo() {
       //long = long + 1;
@@ -275,7 +275,7 @@ manager.on('move', function (event, nipple) {
     }
 
 
-    
+
   window.onload = function () {
       createJoystick();
     }
@@ -288,7 +288,7 @@ manager.on('move', function (event, nipple) {
       height: 100%;
       width: 100%;
     }
-    /* Optional: Makes the sample page fill the window. 
+    /* Optional: Makes the sample page fill the window.
     html, body {
       height: 100%;
       margin: 0;
@@ -324,21 +324,35 @@ manager.on('move', function (event, nipple) {
     </select>
 
     <hr>
-	
+
 	<h3>Connection status: <span id="status" style="color:green;"></span></h3>
 	<!-- <p>Last /txt_msg received: <span id="msg"></span></p> -->
-	
+
 	</center>
+  <hr>
+<center>
+  <hr>
+ <br>
+ <br><br>
+ <br>
+ <br>
+ <div id="my_joystick" style="position: relative;"></div>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+</center>
 	<hr>
 	<center>
 	<h3 >
-		Control 
+		Control
 	</h3>
 </center>
     <center>
         <div style="height: 400px; width: 640px;">
             <img id="myImg" src="http://localhost:8080/stream?topic=/camera/rgb/image_raw&type=mjpeg&quality=30&width=640&height=400&default_transport=compressed"/>
-        </div>    
+        </div>
     </center>
 <hr>
 <h2>
@@ -346,7 +360,7 @@ manager.on('move', function (event, nipple) {
 </h2>
 
 
-  
+
   <h3>Robot 1</h3>
 
   <h3>Latitude: <span id="lat1"></span></h3>
@@ -381,7 +395,7 @@ manager.on('move', function (event, nipple) {
 <center>
     <div style="height: 400px; width: 640px;">
         <div id="map"></div>
-    </div>    
+    </div>
 </center>
 
 <hr>
@@ -406,7 +420,7 @@ Account<br>
 - Name<br>
 - Email<br>
 - Password<br>
-- Change password<br> 
+- Change password<br>
 - Delete account<br>
 </p>
 </div>
