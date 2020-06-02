@@ -10,7 +10,6 @@ sudo -H apt-get install -y ros-melodic-web-video-server
 sudo apt-get install ros-melodic-hector-gazebo-plugins
 sudo apt install ros-melodic-dwa-local-planner
 
-
 echo "installing pip dependencies"
 
 # python dependencies
@@ -24,7 +23,7 @@ cd ..
 # clone the required packages
 git clone https://github.com/danielsnider/gps_goal.git
 git clone https://github.com/GT-RAIL/robot_pose_publisher.git
-git clone https://github.com/sachinkum0009/turtlebot3.git
+git clone https://github.com/intelligence-for-robots/turtlebot3.git
 git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
 git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
 
@@ -36,5 +35,6 @@ cd ..
 echo "done with the setup"
 echo "Ready to launch files"
 echo "compile the workspace with catkin_make"
-echo "run cmd 'export TURTLEBOT3_MODEL=waffle_pi' and 'roslaunch turtle_pkg main.launch' to launch the robot"
-
+cd ..
+rosdep install --from-paths src --ignore-src
+catkin_make

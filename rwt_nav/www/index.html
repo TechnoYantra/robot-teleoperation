@@ -45,13 +45,13 @@
 
 		fix_listener1.subscribe(function(m) {
 			//document.getElementById("msglong1").innerHTML = m.longitude;
-      console.log('change marker position was called')
+      //console.log('change marker position was called')
       var lng = m.longitude;
       var lat = m.latitude;
       changeMarkerPosition(marker, lat, lng);
 			//move(0.5, 0)
 		});
-
+    
 
 
 
@@ -64,7 +64,8 @@
 		});
 
 		// add the virtual joystick
-		createJoystick = function () {
+		
+    createJoystick = function () {
       var options = {
         zone: document.getElementById('my_joystick'),
         threshold: 0.1,
@@ -74,6 +75,7 @@
         color: '#000000',
       };
       manager = nipplejs.create(options);
+      console.log("manager created")
 
       linear_speed = 0;
       angular_speed = 0;
@@ -83,8 +85,8 @@
 	  if (document.getElementById('robot').value == "husky1"){
       if (linear_speed > 1.0) {
       linear_speed = 0.8;
-    console.log('linear value');
-    console.log(linear_speed);
+    //console.log('linear value');
+    //console.log(linear_speed);
 
   }
   else if (linear_speed < -1.0) {
@@ -209,8 +211,8 @@ manager.on('move', function (event, nipple) {
 
     function changeMarkerPosition(marker, lat, lng) {
         var latlng = new google.maps.LatLng((lat), (lng));
-        console.log(lat);
-        console.log(lng);
+        //console.log(lat);
+        //console.log(lng);
         document.getElementById("lat1").innerHTML = lat;
         document.getElementById("lng1").innerHTML = lng;
         marker.setPosition(latlng);
@@ -276,9 +278,9 @@ manager.on('move', function (event, nipple) {
 
 
 
-  window.onload = function () {
+  /*window.onload = function () {
       createJoystick();
-    }
+    }*/
 
   </script>
   <style>
@@ -306,7 +308,7 @@ manager.on('move', function (event, nipple) {
 
 </head>
 
-<body>
+<body onload="createJoystick();">
 	<center>
 	<h1>
 
