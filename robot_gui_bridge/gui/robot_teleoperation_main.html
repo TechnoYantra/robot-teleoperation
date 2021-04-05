@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <script type="text/javascript" src="eventemitter2.min.js"></script>
+  <script type="text/javascript" src="roslib.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+
+  <script type="text/javascript" src="nipplejs.js"></script>
+
+
+
+  <script type="text/javascript" type="text/javascript">
+    var ros = new ROSLIB.Ros({
+      url: 'ws://localhost:9090'
+    });
+
+    ros.on('connection', function () {
+      document.getElementById("status").innerHTML = "connected";
+    });
+
+    ros.on('error', function () {
+      document.getElementById("status").innerHTML = "Error";
+    });
+
+    ros.on('close', function () {
+      document.getElementById("status").innerHTML = "Closed";
+    });
+
+    // Subscribing to a Topic
+    var fix_listener1 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/fix',
+      messageType: 'sensor_msgs/NavSatFix'
+    });
+
+    fix_listener1.subscribe(function (m) {
+      //document.getElementById("msglong1").innerHTML = m.longitude;
+      console.log('change marker position was called')
+      var lng = m.longitude;
+      var lat = m.latitude;
+      changeMarkerPosition(marker, lat, lng);
+      //move(0.5, 0)
+    });
+
+
+
+
+
+    // The following example creates a marker in Stockholm, Sweden using a DROP
+    // animation. Clicking on the marker will toggle the animation between a BOUNCE
+    // animation and no animation.
+
+    var marker;
+    var marker2;
+
+
+
+    function changeMarkerPosition(marker, lat, lng) {
+      var latlng = new google.maps.LatLng((lat), (lng));
+      console.log(lat);
+      console.log(lng);
+      document.getElementById("lat1").innerHTML = lat;
+      document.getElementById("lng1").innerHTML = lng;
+      marker.setPosition(latlng);
+    }
+
+
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 22,
+        center: { lat: 18.516726, lng: 73.856255 }
+      });
+
+      // adding custom marker
+      var iconBase1 = 'robot1.png';
+
+
+      marker = new google.maps.Marker({
+        map: map,
+        draggable: true,
+        icon: iconBase1,
+        animation: google.maps.Animation.DROP,
+        position: { lat: 18.516726, lng: 73.856255 },
+        title: 'Turtle 1'
+      });
+      marker.addListener('click', toggleBounce);
+
+
+    }
+
+    function toggleBounce() {
+      if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
+      } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+      }
+    }
+
+
+  </script>
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    #map {
+      height: 100%;
+      width: 100%;
+    }
+
+    /* Optional: Makes the sample page fill the window. 
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    */
+  </style>
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?&callback=initMap">
+  </script>
+</head>
+
+<body>
+  <center>
+    <h1>
+      Teleoperation for Robots Using Google Maps
+    </h1>
+    <hr>
+    <br>
+    <center>
+
+      <h3>Connection status: <span id="status" style="color:green;"></span></h3>
+      <!-- <p>Last /txt_msg received: <span id="msg"></span></p> -->
+
+    </center>
+    <hr>
+    <br>
+
+
+    <h2>
+      GPS Coordinates
+    </h2>
+
+
+
+
+    <h3>Latitude: <span id="lat1"></span></h3>
+
+    <h3>Longitude: <span id="lng1"></span></h3>
+
+
+    <hr>
+    <h2>
+      Google Map
+    </h2>
+    <center>
+      <div style="height: 400px; width: 640px;">
+        <div id="map"></div>
+      </div>
+    </center>
+
+    <hr>
+
+<!-- 
+    <button type="button" style="width: 250px;">Load saved path</button><br>
+    <br>
+    <button type="button" style="width: 250px;">Start job</button><br>
+    <br><button type="button" style="width: 250px;">End job</button><br>
+    <br>
+    <button type="button" style="width: 250px;">Go back to start position</button><br> -->
+
+
+  </center>
+
+  <br>
+  <!-- <center>
+    <div style="display: inline-block;">
+      <p style="text-align: left;">
+        Account<br>
+        - Name<br>
+        - Email<br>
+        - Password<br>
+        - Change password<br>
+        - Delete account<br>
+      </p>
+    </div>
+  </center> -->
+
+</body>
+
+</html>
